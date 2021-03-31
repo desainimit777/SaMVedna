@@ -1,0 +1,44 @@
+<html>
+<head>
+	<title>SAMVEDNA</title>
+	<link rel="stylesheet" href='/ngo.css'>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://kit.fontawesome.com/33b5fef4c1.js" crossorigin="anonymous"></script>
+  </head>
+
+</head>
+
+<body>	
+	<script type="text/javascript">
+		
+	</script>
+<header class="header-fixed">
+	<div class="header-limiter">
+		<h1><a href="/home">Sam<span>Vedna</span></a></h1>
+		<nav>
+			<a href="/home">Home</a>
+			<a href="/aboutus">About us</a>
+			<a href="/contactus">Contact Us</a>
+			<a href="/user/<%= currentUser._id %>">Welcome <%= currentUser.Name %></a>
+			<a href="/logout">Log Out</a>
+
+		</nav>
+	</div>
+</header>
+<div class="alert alert-success">
+	
+<h1>Thank You <%= currentUser.Name %> For Helping People In This Critical Situation..</h1>
+<h2>Our Ngo Will Contact You After SomeTime..</h2>
+<i class="far fa-check-circle" style="font-size: 80px;"></i>
+
+</div>
+</body>
+</html>
+
+

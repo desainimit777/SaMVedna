@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<body>
+<head>
+	<title>CONTACTC US | SAMVEDNA></title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+      <link href='http://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+      <link rel="stylesheet" href="/ngo.css">
+      <style>
+          
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=submit] {
+  background-color: cornflowerblue;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color:cornflowerblue;
+}
+
+/* Style the container/contact section */
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 10px;
+}
+
+/* Create two columns that float next to eachother */
+.column {
+  float: left;
+  width: 50%;
+  margin-top: 6px;
+  padding: 20px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+</style>
+</head>
+
+<body>
+<header class="header-fixed">
+	<div class="header-limiter">
+		<h1><a href="/home">Sam<span>Vedna</span></a></h1>
+		<nav>
+			<a href="/home">Home</a>
+			<a href="/aboutus">About us</a>
+		</nav>
+	</div>
+</header>
+
+
+<div class="container">
+  <div style="text-align:center">
+    <h2>Contact Us</h2>
+    <p>Leave your Message Here...</p>
+  </div>
+  <div class="row">
+    <div class="column">
+        <div class="address"> 
+            <p><span style="font-size: 40px;">SamVedna</span></p> 
+            <p><span class="material-icons">
+                home
+                </span> Shreepad Antilia,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;near Rajcorner,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pal-359009,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Surat-Gujarat</p> 
+            <p><span class="material-icons">
+                mail_outline
+                </span>18dce020@charusat.edu.in</p> 
+            <p><span class="material-icons">
+                call
+                </span>+91-9726609038</p> 
+        </div>
+    </div>
+    <div class="column">
+      <form>
+        <label for="fname">First Name</label>
+        <input type="text" id="fname" name="firstname" placeholder="Your name..">
+        <label for="lname">Last Name</label>
+        <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+        <label for="email">Email</label>
+        <input type="text" id="email" name="email" placeholder="Your Email..">
+        <label for="subject">Subject</label>
+        <textarea id="subject" name="subject" placeholder="Write something.." style="height:170px"></textarea>
+        <input type="submit" value="Submit">
+      </form>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

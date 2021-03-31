@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>SAMVEDNA</title>
+	<link rel="stylesheet" href='/ngo.css'>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>	
+<header class="header-fixed">
+	<div class="header-limiter">
+		<h1><a href="/home">Sam<span>Vedna</span></a></h1>
+		<nav>
+			<a href="/home">Home</a>
+			<a href="/aboutus">About us</a>
+			<a href="/contactus">Contact Us</a>
+			<a href="/user/<%= status._id %>">Welcome <%= status.Name %></a>
+			<a href="/logout">Log Out</a>
+
+		</nav>
+	</div>
+</header>
+<hr>
+<br>
+<% if(status.name.length)
+{ %>
+<%	for(var i=0 ; i< status.name.length ; i++){ %>
+<div class = "middle-section">
+<div class = "middle-border">
+<img src = "/images/download.jpg">
+<div class = "paragraph">
+<p id="desc">Sent To : &nbsp;<%= status.name[i].username %></p><br>	
+<p id="desc">Status : &nbsp;<%= status.name[i].response %></p><br>
+<p id="desc">Roti : &nbsp;<%= status.name[i].Chapati %></p><br>
+<p id="desc">Rice : &nbsp;<%= status.name[i].Rice %></p><br>
+<p id="desc">Khichdi : &nbsp;<%= status.name[i].Khichdi %></p><br>
+<p id="desc">Biscuits : &nbsp;<%= status.name[i].Biscuits %></p><br>
+</div>
+</div>
+</div>
+</div>	
+<%}%>
+
+<!-- <% if(status.name.length == "0")
+{ %>
+	<h1>NO DATA FOUND</h1>
+<%}%> -->
+<%}else{%>
+NO DATA FOUND..
+<%}%>	
+</body>
+</html>	

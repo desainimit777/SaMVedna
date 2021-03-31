@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>SAMVEDNA NGO</title>
+	<link rel="stylesheet" href='/ngo.css'>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>	
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			$("#accept").click(function()
+			{
+				$("middle-section").hide();
+			});
+		});
+	</script>
+<header class="header-fixed">
+	<div class="header-limiter">
+		<h1><a href="/home">Sam<span>Vedna</span></a></h1>
+		<nav>
+			<a href="/home">Home</a>
+			<a href="/aboutus">About us</a>
+			<a href="/contactus">Contact Us</a>
+			<a href="/user/<%= currentUser._id %>">Welcome <%= currentUser.Name %></a>
+			<a href="/logout">Log Out</a>
+
+		</nav>
+	</div>
+</header>
+
+<div class = "middle-section">
+<div class = "middle-border">
+<img src = "/images/charity.svg">
+<div class = "paragraph">
+<p id = "desc">Name : &nbsp;<%= sign.Name %></p><br>
+<p id = "desc">Address : &nbsp;<%= sign.Adress %></p><br>
+<p id = "desc">City : &nbsp;<%= sign.City %></p><br>
+<% if( currentUser.isOrg == "user")
+{ %>	
+<a class="btn btn-outline-danger"  href = "/ngo/<%= sign._id %>/items">DONATE THE FOOD</a>
+<hr>
+<% }
+else
+{ %>
+<hr>
+<br>
+<br>
+<br>
+</div>
+</div>
+</div>
+<hr>
+<br>
+<% if(sign)
+{ %>
+	<h1 align="center">HERE ARE SOME REQUESTS...</h1>
+<%	for(var i=0 ; i< sign.name.length ; i++){ %>
+<div class = "middle-section">
+<div class = "middle-border">
+<img src = "/images/download.jpg">
+<div class = "paragraph">
+<p id="desc">Name : &nbsp;<%= sign.name[i].request %></p><br>	
+<p id="desc">Status : &nbsp;<%= sign.name[i].response %></p><br>
+<p id="desc">Chapati : &nbsp;<%= sign.name[i].Chapati %></p><br>
+<p id="desc">Rice : &nbsp;<%= sign.name[i].Rice %></p><br>
+<p id="desc">Khichdi : &nbsp;<%= sign.name[i].Khichdi %></p><br>
+<p id="desc">Biscuits : &nbsp;<%= sign.name[i].Biscuits %></p><br>
+<p id="desc">Request Sent On : &nbsp;<%= sign.name[i].Time %></p><br>
+<% if(sign.name[i].response == "Request Confirmed")
+{ %>
+<a href="/ngo/<%= sign._id %>/<%= sign.name[i]._id %>/accept"><button class="btn btn-outline-danger" id="accept" disabled>Accept</button></a>	
+<a href="/ngo/<%= sign._id %>/<%= sign.name[i]._id %>/cancel"><button class="btn btn-outline-secondary" id="accept" disabled>Decline</button></a>
+<%} else {%>
+<a href="/ngo/<%= sign._id %>/<%= sign.name[i]._id %>/accept"><button class="btn btn-outline-danger" id="accept" >Accept</button></a>	
+</form>
+<a href="/ngo/<%= sign._id %>/<%= sign.name[i]._id %>/cancel"><button class="btn btn-outline-secondary" id="accept" >Decline</button></a>
+<%}%>
+</div>
+</div>
+</div>	
+<%} if(sign.name.length == "0") {%> 
+<h1>No Requests..</h1>
+<%}%>
+<%}%>
+<%}%>
+</body>
+</html>

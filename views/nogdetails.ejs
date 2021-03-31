@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>SAMVEDNA NGO</title>
+	<link rel="stylesheet" href="./ngo.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  	<link href='http://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+<header class="header-fixed">
+	<div class="header-limiter">
+		<h1><a href="/home">Sam<span>Vedna</span></a></h1>
+		<nav>
+			<a href="/home" class="selected">Home</a>
+			<a href="/aboutus">About us</a>
+			<a href="/contactus">Contact Us</a>
+			<a href="/ngo">Our NGO's</a>
+			<a href="/user/<%= currentUser._id %>">WELCOME <%= currentUser.Name %></a>
+			<a href="/login">Logout</a>
+		</nav>
+	</div>
+</header>
+
+<div class="middle-p">
+    <p id="p1">Our Partners NGOs</p>
+    <p id="p2">The real force behind SamVedna. NGOs are working day and night to<br> serve food to needy peoples.    </p>
+    <hr style="align-items: center; width : 1000px;">
+</div>
+
+<% sign.forEach(function(sign)
+{ %>
+
+<a href="/ngo/<%= sign._id %>">	
+<div class="middle-section">
+<div class="middle-border">
+<img src= "./images/charity.svg ">
+<div class="paragraph">
+<p id="desc">Name : &nbsp;<%= sign.Name %></p><br>	
+<p id="desc">Address : &nbsp;<%= sign.Adress %></p><br>
+<p id="desc">City : &nbsp;<%= sign.City %></p><br>
+</div>
+</a>
+<hr>
+</div>
+</div>
+<% }); %>
+</body>
+</html>

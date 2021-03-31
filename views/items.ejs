@@ -1,0 +1,341 @@
+<html>
+<head>
+	<title>SAMVEDNA</title>
+	<link rel="stylesheet" href="/middle-section.css">
+    <link href='http://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">
+    </script>
+    	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<body>
+<header class="header-fixed">
+	<div class="header-limiter">
+		<h1><a href="/home">Sam<span>Vedna</span></a></h1>
+		<nav>
+			<a href="/aboutus">About us</a>
+			<a href="/contactus">Contact us</a>
+			<a href="#" class="selected">WELCOME <%= currentUser.Name %></a>
+			<a href="/logout">Logout</a>
+			
+
+		</nav>
+	</div>
+</header>
+<div class="middle-section">
+<p id="add-food">Add Food</p>
+<p id="p2">Many less privileged folks are struggling to eat, you can help them<br> by providing food. <span style="color: blue; font-size: 20px;"> Samvedna</span> connects you to NGOs to help the needy.</p>
+</div>
+<div class="food-add">
+	<div class="time">
+	<label for="Time">Please select Pick-Up Time:</label>
+	<select id="Time">
+	<span style="font-size: large;">  <option>10:00 AM</option>
+	  <option>05:00 PM</option>
+	</span>
+	</select>
+</div>
+<hr>
+<div class="inputtypes" >	
+<p id="items">CHAPATI (pcs)</p>
+&nbsp;&nbsp;
+
+<div class="buttons">
+<div class="handle-counter">
+<button id="add" class="counter-plus btn btn-danger">+</button><input class="form-group" id="inpt" type="number" value="0">
+<button class="counter-minus btn btn-danger" id="subtract">-</button>
+</div>
+</div>
+<br>
+<p id="items">RICE (bowl)</p>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<div class="buttons">
+<div class="handle-counter">
+	<button id="add1"  class="counter-plus btn btn-danger">+</button><input id="inpt1" type="number" value="0">
+	<button id="subtract1" class="counter-minus btn btn-danger">-</button>
+	</div>
+	</div>
+	<br>
+<p id="items">KHICHDI (bowl)</p>
+<div class="buttons">
+<div class="handle-counter">
+	<button id="add2" class="counter-plus btn btn-danger">+</button><input id="inpt2" type="number" value="0">
+	<button id="subtract2" class="counter-minus btn btn-danger">-</button>
+	</div>
+	</div>
+	<br>
+<p id="items">BISCUITS (pkt)</p>
+
+&nbsp;&nbsp;
+<div class="buttons">
+<div class="handle-counter">
+	<button id="add3" class="counter-plus btn btn-danger">+</button><input id="inpt3" type="number" value="0">
+	<button id="subtract3" class="counter-minus btn btn-danger">-</button>
+	</div>
+	</div>
+	<br>
+	<br>
+	<p id="items" class="items"><strong>Notes (If any)</strong></p><br>
+	<textarea class="form-control"></textarea>
+	<br>
+	<div class="text-center">
+	<div class="btn btn-danger" id="main-button" onclick ="print()">Add Food Items
+	</div>
+	</div>
+	</div>
+</div>
+<br>
+<br>
+
+	<section class="items-wrap mb-5">
+		<div class="container">
+			<div class="row">
+				<div class="col-12 col-sm-12 col-lg-10 offset-lg-1 pt-4  border-top">
+					<div class="col-12 text-center mb-2 mb-sm-4">
+						<h3 class="title text-theme-brown text-danger">Your Contributions</h3>
+					</div>
+					
+
+<!-- FINAL BILLING ITEMS -->
+
+
+<form action="/ngo/<%= items._id %>" method="POST">
+<div class="text-center ">
+<div class="inputtypes-1" >
+<div id="chapati">	
+<p id="items">CHAPATI (pcs)</p>
+&nbsp;&nbsp;
+
+<div class="buttons">
+<div class="handle-counter">
+<button id="add" class="counter-plus btn btn-danger">+</button><input name="number1" class="form-group" id="input1" 
+type="number" value="0">
+<button class = "counter-minus btn btn-danger" id="subtract">-</button>
+<a class="btn btn-danger" id="remove1">Remove</a>
+</div>
+</div>
+</div>
+<br>
+
+<div id="rice">
+
+<p id="items">RICE (bowl)</p>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<div class="buttons">
+<div class="handle-counter">
+	<button id="add1"  class="counter-plus btn btn-danger">+</button><input name="number2" id="input2" type="number" value="0">
+	<button id="subtract1" class="counter-minus btn btn-danger">-</button>
+	<a class="btn btn-danger" id="remove2">Remove</a>
+	</div>
+	</div>
+	</div>
+	<br>
+
+<div id="khichdi">
+<p id="items">KHICHDI (bowl)</p>
+<div class="buttons">
+<div class="handle-counter">
+	<button id="add2" class="counter-plus btn btn-danger">+</button><input name = "number3" id="input3" type="number" value="0">
+	<button id="subtract2" class="counter-minus btn btn-danger">-</button>
+	<a class="btn btn-danger" id="remove3">Remove</a>
+	</div>
+	</div>
+	</div>
+	<br>
+
+<div id="biscuits">	
+<p id="items">BISCUITS (pkt)</p>
+
+&nbsp;&nbsp;
+<div class="buttons">
+<div class="handle-counter">
+	<button id="add3" class="counter-plus btn btn-danger">+</button><input name="number4" id="input4" type="number" value="0">
+	<button id="subtract3" class="counter-minus btn btn-danger">-</button>
+	<a class="btn btn-danger" id="remove4">Remove</a>
+	</div>
+	</div>
+	</div>
+	<br>
+	<br>
+	<p id="items" class="items"><strong>Notes (If any)</strong></p><br>
+	<textarea class="form-control"></textarea>
+	<input type="submit" class="btn btn-outline-primary">
+</div>
+</div>
+
+					<div class="col-12 text-center mb-4 ">
+						<p class="text-theme-creme text-warning">Thank you for your help in this critical time.
+						</p>
+					</div>
+					<div class="col-12 text-center mb-4"><p>Food item(s) not added today.
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	</form>
+</section>
+<script type="text/javascript">
+	document.getElementById('subtract').addEventListener("click",myfunction);
+
+	function myfunction() 
+	{
+var sub = document.getElementById("inpt");
+
+while(sub.value>0)
+{
+sub.value = sub.value -1;
+return false;
+}
+}
+
+document.getElementById("add").addEventListener("click",f1);
+
+function f1() 
+{
+
+var input = document.getElementById("inpt");
+
+input.value++;
+
+}
+
+
+//SECOND
+
+	document.getElementById('subtract1').addEventListener("click",myfunction1);
+
+	function myfunction1() 
+	{
+var sub = document.getElementById("inpt1");
+
+while(sub.value>0)
+{
+sub.value = sub.value -1;
+return false;
+}
+}
+
+document.getElementById("add1").addEventListener("click",f2);
+
+function f2() 
+{
+
+var input = document.getElementById("inpt1");
+
+input.value++;
+
+}
+
+//THIRD
+	document.getElementById('subtract2').addEventListener("click",myfunction2);
+
+	function myfunction2() 
+	{
+var sub = document.getElementById("inpt2");
+
+while(sub.value>0)
+{
+sub.value = sub.value -1;
+return false;
+}
+}
+
+document.getElementById("add2").addEventListener("click",f3);
+
+function f3() 
+{
+
+var input = document.getElementById("inpt2");
+
+input.value++;
+
+}
+
+//FOURTH  
+
+	document.getElementById('subtract3').addEventListener("click",myfunction3);
+
+	function myfunction3() 
+	{
+var sub = document.getElementById("inpt3");
+
+while(sub.value>0)
+{
+sub.value = sub.value -1;
+return false;
+}
+}
+
+document.getElementById("add3").addEventListener("click",f4);
+
+function f4() 
+{
+
+var input = document.getElementById("inpt3");
+
+input.value++;
+
+}
+
+function print()
+{
+	var x = document.getElementById('inpt').value;
+	document.getElementById('input1').value = x;
+
+		var y = document.getElementById('inpt1').value;
+	document.getElementById('input2').value = y;
+
+		var z = document.getElementById('inpt2').value;
+	document.getElementById('input3').value = z;
+
+
+		var w = document.getElementById('inpt3').value;
+	document.getElementById('input4').value = w;
+
+}
+
+$(document).ready(function(){
+  $("#remove1").click(function(){
+    $("#chapati").remove();
+  });
+});
+
+$(document).ready(function(){
+  $("#remove2").click(function(){
+    $("#rice").remove();
+  });
+});
+
+$(document).ready(function(){
+  $("#remove3").click(function(){
+    $("#khichdi").remove();
+  });
+});
+
+$(document).ready(function(){
+  $("#remove4").click(function(){
+    $("#biscuits").remove();
+  });
+});
+
+$(document).ready(function()
+{
+	$("#main-button").click(function()
+	{
+		$(".inputtypes-1").show();
+	});
+});
+function fun2()
+{
+	alert("submitted sucessfully");
+}
+</script>
+</body>
+</html>

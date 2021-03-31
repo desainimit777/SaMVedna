@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>NGO SIGN_UP</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  	<link rel="stylesheet" type="text/css" href="/sign_up(ngo).css">
+  	<link href='http://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
+</head>
+<body>
+<header class="header-fixed">
+	<div class="header-limiter">
+		<h1><a href="/home">Sam<span>Vedna</span></a></h1>
+		<nav>
+			<a href="/home">Home</a>
+			<a href="/aboutus">About us</a>
+			<a href="/contactus">Contact Us</a>
+			<a href="/logout">Log Out</a>
+			<% if(User.isOrg == "user")
+			{%>
+			<a href="/history/<%= User._id %>">History</a>
+			<a href="/status/<%= User._id %>">Status</a>
+			<% } %>
+		</nav>
+	</div>
+</header>
+<div class="container text-center">
+<h1>Sam<span>Vedna</span></	h1>
+</div>
+<div class="row justify-content-center">
+	<div class="col-12 col-md-6 col-lg-5 col-xl-4">
+		<div class="login-form text-center">
+			<div class="form-header">
+				<h3>Sign Up as NGO</h3>
+			</div>
+			<div class = "card-body text-left">
+				<form action="/register" method="POST">
+					<div class="form-group input-style">
+						<label for="name">
+							NGO Name
+							<span class="text-danger">*</span>
+						</label>
+						<input type="text" name="name" class="form-control" value="<%= User.Name %>" disabled>
+					</div>
+					<div class="form-group input-style">
+						<label for="number">
+							Mobile No
+							<span class="text-danger">*</span>
+						</label>
+						<input type="text" name="username" class="form-control" maxlength="10" value="<%= User.username %>" disabled>
+					</div>
+					<div class="form-group input-style"><label for="number" >Address</label>
+						<input name="address" type="textarea" class="form-control max-height-70" 
+						value="<%= User.Adress %>" disabled>
+					</div>
+					<label for="city">City <span class="text-danger">*</span></label>
+					<div class="form-group">
+  								<select class="form-control" id="sel1" name="city" disabled="">
+  									<option><%= User.City %></option>
+    							<option>SURAT</option>
+  								</select>
+					</div>
+					<label for="city">Area <span class="text-danger">*</span></label>
+					<div class="form-group" >
+  								<select class="form-control" id="sel1" name="area" disabled="">
+  								<option><%= User.Area %></option>
+    							<option>--SELECT Area--</option>
+    							<option>ADAJAN</option>
+    							<option>RANDER</option>
+    							<option>CITY-LIGHT</option>
+    							<option>GHOD-DOD ROAD</option>
+    							<option>UDHNA</option>
+    							<option>VARACHA</option>
+    							<option>ATHWA-LINES</option>
+    							<option>VESU</option>
+  								</select>
+					</div>
+					<label for="password">
+						Password
+						<span class="text-danger">*</span>
+					</label>
+						<div class="form-group">
+							<input type="password" name="password" class="form-control" disabled>
+						</div>
+					</label>
+					<div class="form-group">
+						<select name="categ" disabled>
+							<option value=""><%= User.isOrg %></option>
+							<option value="organization">NGO</option>
+							<option value="user">Citizen</option>
+						</select>
+					</div>
+
+					<div>
+					<a href="/user/<%= User._id %>/edit" class = "btn btn-primary">EDIT
+					</a>					
+					</div>
+
+		</div>
+	</div>
+</body>
+</html>
